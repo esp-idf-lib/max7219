@@ -1,0 +1,7 @@
+---
+version: 1.0.0
+description: 8x8
+dependencies:
+  esp-idf-lib/max7219:
+    version: "*"
+    override_path: "../../../"
