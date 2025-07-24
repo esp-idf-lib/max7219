@@ -1,9 +1,5 @@
-.. Foo documentation master file, created by
-   sphinx-quickstart on Mon Jul 21 22:05:54 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+max7219: Driver for 8-Digit LED display drivers, MAX7219/MAX7221
+================================================================
 
-Welcome to Foo's documentation!
-===============================
-
-.. doxygenfile:: template-component.h
+ .. doxygenfile:: max7219.h
+ .. doxygenfile:: max7219_priv.h
