@@ -11,7 +11,7 @@ Driver for 8-Digit LED display drivers, MAX7219/MAX7221.
 ## Installation
 
 ```sh
-idf.py add-dependency "esp-idf-lib/max7219^1.0.0
+idf.py add-dependency esp-idf-lib/max7219^1.0.0
 ```
 
 ## Support
