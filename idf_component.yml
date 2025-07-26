@@ -1,5 +1,5 @@
 ---
-version: 1.0.2
+version: 1.0.3
 description: Driver for 8-Digit LED display drivers, MAX7219/MAX7221
 license: BSD-3
 targets:
