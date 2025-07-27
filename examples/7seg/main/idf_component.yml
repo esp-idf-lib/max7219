@@ -1,7 +1,8 @@
----
 version: 1.0.0
 description: 7seg
 dependencies:
   esp-idf-lib/max7219:
-    version: "*"
-    override_path: "../../../"
+    version: '*'
+    override_path: ../../../
+  esp-idf-lib/esp_idf_lib_helpers:
+    version: '*'
