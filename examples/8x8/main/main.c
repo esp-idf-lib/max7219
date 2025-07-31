@@ -11,7 +11,8 @@
 #define APP_CPU_NUM PRO_CPU_NUM
 #endif
 
-static const uint64_t symbols[] = {
+static const uint64_t symbols[] =
+{
     0x383838fe7c381000, // arrows
     0x10387cfe38383800,
     0x10307efe7e301000,
@@ -35,22 +36,24 @@ static const size_t symbols_size = sizeof(symbols) - sizeof(uint64_t) * CONFIG_E
 void task(void *pvParameter)
 {
     // Configure SPI bus
-    spi_bus_config_t cfg = {
-       .mosi_io_num = CONFIG_EXAMPLE_PIN_NUM_MOSI,
-       .miso_io_num = -1,
-       .sclk_io_num = CONFIG_EXAMPLE_PIN_NUM_CLK,
-       .quadwp_io_num = -1,
-       .quadhd_io_num = -1,
-       .max_transfer_sz = 0,
-       .flags = 0
+    spi_bus_config_t cfg =
+    {
+        .mosi_io_num = CONFIG_EXAMPLE_PIN_NUM_MOSI,
+        .miso_io_num = -1,
+        .sclk_io_num = CONFIG_EXAMPLE_PIN_NUM_CLK,
+        .quadwp_io_num = -1,
+        .quadhd_io_num = -1,
+        .max_transfer_sz = 0,
+        .flags = 0
     };
     ESP_ERROR_CHECK(spi_bus_initialize(HOST, &cfg, 1));
 
     // Configure device
-    max7219_t dev = {
-       .cascade_size = CONFIG_EXAMPLE_CASCADE_SIZE,
-       .digits = 0,
-       .mirrored = true
+    max7219_t dev =
+    {
+        .cascade_size = CONFIG_EXAMPLE_CASCADE_SIZE,
+        .digits = 0,
+        .mirrored = true
     };
     ESP_ERROR_CHECK(max7219_init_desc(&dev, HOST, MAX7219_MAX_CLOCK_SPEED_HZ, CONFIG_EXAMPLE_PIN_CS));
     ESP_ERROR_CHECK(max7219_init(&dev));
