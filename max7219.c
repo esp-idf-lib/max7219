@@ -257,7 +257,7 @@ esp_err_t max7219_draw_image_8x8(max7219_t *dev, uint8_t pos, const void *image)
     CHECK_ARG(dev && image);
 
     for (uint8_t i = pos, offs = 0; i < dev->digits && offs < 8; i++, offs++)
-        max7219_set_digit(dev, i, *((uint8_t *)image + offs));
+        CHECK(max7219_set_digit(dev, i, *((uint8_t *)image + offs)));
 
     return ESP_OK;
 }
