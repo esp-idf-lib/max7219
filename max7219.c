@@ -68,13 +68,17 @@ static inline uint16_t shuffle(uint16_t val)
 
 static esp_err_t send(max7219_t *dev, uint8_t chip, uint16_t value)
 {
-    uint16_t buf[MAX7219_MAX_CASCADE_SIZE] = { 0 };
+    uint16_t buf[dev->cascade_size];
     if (chip == ALL_CHIPS)
     {
-        for (uint8_t i = 0; i < dev->cascade_size; i++)
+        for (int i = 0; i < dev->cascade_size; i++)
             buf[i] = shuffle(value);
     }
-    else buf[chip] = shuffle(value);
+    else
+    {
+        memset(buf, 0, dev->cascade_size * sizeof(uint16_t));
+        buf[chip] = shuffle(value);
+    }
 
     spi_transaction_t t;
     memset(&t, 0, sizeof(t));
@@ -138,7 +142,7 @@ esp_err_t max7219_free_desc(max7219_t *dev)
 esp_err_t max7219_init(max7219_t *dev)
 {
     CHECK_ARG(dev);
-    if (!dev->cascade_size || dev->cascade_size > MAX7219_MAX_CASCADE_SIZE)
+    if (!dev->cascade_size)
     {
         ESP_LOGE(TAG, "Invalid cascade size %d", dev->cascade_size);
         return ESP_ERR_INVALID_ARG;
