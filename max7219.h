@@ -53,8 +53,6 @@ extern "C" {
 #endif
 
 #define MAX7219_MAX_CLOCK_SPEED_HZ (10000000) // 10 MHz
-
-#define MAX7219_MAX_CASCADE_SIZE 8
 #define MAX7219_MAX_BRIGHTNESS   15
 
 /**
@@ -65,7 +63,7 @@ typedef struct
     spi_device_interface_config_t spi_cfg;
     spi_device_handle_t spi_dev;
     uint8_t digits;              //!< Accessible digits in 7seg. Up to cascade_size * 8
-    uint8_t cascade_size;        //!< Up to `MAX7219_MAX_CASCADE_SIZE` MAX721xx cascaded
+    uint8_t cascade_size;        //!< Number of cascaded MAX72xx devices
     bool mirrored;               //!< true for horizontally mirrored displays
     bool bcd;
 } max7219_t;
