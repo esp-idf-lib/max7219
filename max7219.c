@@ -194,6 +194,22 @@ esp_err_t max7219_set_brightness(max7219_t *dev, uint8_t value)
     return ESP_OK;
 }
 
+esp_err_t max7219_set_brightness_chip(max7219_t *dev, uint8_t chip, uint8_t value)
+{
+    CHECK_ARG(dev);
+    CHECK_ARG(value <= MAX7219_MAX_BRIGHTNESS);
+
+    if (chip >= dev->cascade_size)
+    {
+        ESP_LOGE(TAG, "Invalid chip: %d", chip);
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    CHECK(send(dev, chip, REG_INTENSITY | value));
+
+    return ESP_OK;
+}
+
 esp_err_t max7219_set_shutdown_mode(max7219_t *dev, bool shutdown)
 {
     CHECK_ARG(dev);
