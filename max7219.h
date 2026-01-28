@@ -117,6 +117,16 @@ esp_err_t max7219_set_decode_mode(max7219_t *dev, bool bcd);
 esp_err_t max7219_set_brightness(max7219_t *dev, uint8_t value);
 
 /**
+ * @brief Set brightness of specific chip in cascade
+ *
+ * @param dev Display descriptor
+ * @param chip Chip index, 0..dev->cascade_size - 1
+ * @param value Brightness value, 0..MAX7219_MAX_BRIGHTNESS
+ * @return `ESP_OK` on success
+ */
+esp_err_t max7219_set_brightness_chip(max7219_t *dev, uint8_t chip, uint8_t value);
+
+/**
  * @brief Shutdown display or set it to normal mode
  *
  * @param dev Display descriptor
