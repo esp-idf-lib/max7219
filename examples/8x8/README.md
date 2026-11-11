@@ -24,9 +24,9 @@ The example assumes that you are using a LED matrix display module with
 
 | Name | Description | Defaults |
 |------|-------------|----------|
-| `CONFIG_EXAMPLE_PIN_NUM_MOSI` | GPIO number for `MOSI`, or `DIN` | "13" for `esp8266`, "19" for `esp32c3`, `esp32`, `esp32s2`, and `esp32s3` |
-| `CONFIG_EXAMPLE_PIN_NUM_CLK`  | GPIO number for `CLK`  | "14" for `esp8266`, "18" for `esp32c3`, `esp32`, `esp32s2`, and `esp32s3` |
-| `CONFIG_EXAMPLE_PIN_CS`       | GPIO number for `CS` | "15 for `esp8266`, "15" for `esp32c3`, `esp32`, `esp32s2`, and `esp32s3` |
+| `CONFIG_EXAMPLE_PIN_NUM_MOSI` | GPIO number for `MOSI`, or `DIN` | "19" for `esp32`, `esp32s2`, and `esp32s3`, "4" for `esp32c2`, `esp32c3`, `esp32c5`, `esp32c6`, `esp32c61`, `esp32h2`, and `esp32p4` |
+| `CONFIG_EXAMPLE_PIN_NUM_CLK`  | GPIO number for `CLK`  | "18" for `esp32`, `esp32s2`, and `esp32s3`, "6" for `esp32c2`, `esp32c3`, `esp32c5`, `esp32c6`, `esp32c61`, `esp32h2`, and `esp32p4` |
+| `CONFIG_EXAMPLE_PIN_CS` | GPIO number for `CS` | "5" for `esp32`, `esp32s2`, `esp32s3`, `esp32c2`, `esp32c3`, `esp32c5`, `esp32c6`, `esp32c61`, `esp32h2`, and `esp32p4` |
 
 You may cascade several modules by increasing `CONFIG_EXAMPLE_CASCADE_SIZE`.
 In that case, be aware of current consumed by the modules. You need a stiff
