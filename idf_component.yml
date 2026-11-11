@@ -1,7 +1,7 @@
 ---
 version: 1.1.2
 description: Driver for 8-Digit LED display drivers, MAX7219/MAX7221
-license: BSD-3
+license: BSD-3-Clause
 dependencies: {}
 url: https://github.com/esp-idf-lib/core
 repository: https://github.com/esp-idf-lib/max7219
